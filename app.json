@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "Free AI Photo Editor",
+    "slug": "ai-photo-editor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "aiphoto",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#09090b"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.freeaiphoto.editor",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Fotoğrafları seçmek ve düzenlemek için galeri erişimi gereklidir.",
+        "NSPhotoLibraryAddUsageDescription": "Düzenlenen fotoğrafları galeriye kaydetmek için izin gereklidir.",
+        "NSCameraUsageDescription": "Fotoğraf çekip yapay zeka ile düzenlemek için kamera izni gereklidir."
+      }
+    },
+    "android": {
+      "package": "com.freeaiphoto.editor",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#09090b"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Fotoğrafları düzenlemek için galeri erişimine izin verin.",
+          "cameraPermission": "Fotoğraf çekip düzenlemek için kamera erişimine izin verin."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Düzenlenen fotoğrafları galeriye kaydetmek için izin verin.",
+          "savePhotosPermission": "Fotoğrafları galeriye kaydetmek için izin verin."
+        }
+      ],
+      "./plugins/withMlKitManifest.js"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
